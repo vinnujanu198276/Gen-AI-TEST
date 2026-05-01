@@ -1,0 +1,164 @@
+```html id="tp2"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3D Third Person Shooter PRO</title>
+<style>
+body { margin:0; overflow:hidden; background:black; font-family:Arial; }
+
+#ui {
+    position:absolute;
+    top:10px;
+    left:10px;
+    color:#00ffff;
+}
+#health {
+    color:#ff4444;
+}
+</style>
+</head>
+<body>
+
+<div id="ui">
+Score: <span id="score">0</span><br>
+<span id="health">Health: 100</span>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+let scene = new THREE.Scene();
+let camera = new THREE.PerspectiveCamera(75, innerWidth/innerHeight, 0.1, 1000);
+let renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+
+/* Light */
+scene.add(new THREE.HemisphereLight(0xffffff,0x444444));
+
+/* Ground */
+let ground = new THREE.Mesh(
+    new THREE.PlaneGeometry(100,100),
+    new THREE.MeshPhongMaterial({color:0x111111})
+);
+ground.rotation.x = -Math.PI/2;
+scene.add(ground);
+
+/* PLAYER */
+let player = new THREE.Mesh(
+    new THREE.BoxGeometry(1,2,1),
+    new THREE.MeshStandardMaterial({color:0x00ffff})
+);
+player.position.y = 1;
+scene.add(player);
+
+/* Camera follow */
+function updateCamera(){
+    camera.position.set(
+        player.position.x,
+        player.position.y + 4,
+        player.position.z + 6
+    );
+    camera.lookAt(player.position);
+}
+
+/* Controls */
+let keys={};
+document.addEventListener("keydown",e=>keys[e.key]=true);
+document.addEventListener("keyup",e=>keys[e.key]=false);
+
+/* Bullets */
+let bullets=[];
+document.addEventListener("click", ()=>{
+    let b = new THREE.Mesh(
+        new THREE.SphereGeometry(0.2),
+        new THREE.MeshBasicMaterial({color:0xffff00})
+    );
+    b.position.copy(player.position);
+    b.velocity = new THREE.Vector3(0,0,-1);
+    bullets.push(b);
+    scene.add(b);
+});
+
+/* Enemies */
+let enemies=[];
+let score=0;
+let health=100;
+
+function spawnEnemy(){
+    let e = new THREE.Mesh(
+        new THREE.BoxGeometry(1,1,1),
+        new THREE.MeshStandardMaterial({color:0xff0000})
+    );
+    e.position.set((Math.random()-0.5)*20,0.5,-20);
+    enemies.push(e);
+    scene.add(e);
+}
+setInterval(spawnEnemy,1200);
+
+/* Game Loop */
+function animate(){
+    requestAnimationFrame(animate);
+
+    let speed=0.1;
+
+    /* Movement */
+    if(keys["w"]) player.position.z -= speed;
+    if(keys["s"]) player.position.z += speed;
+    if(keys["a"]) player.position.x -= speed;
+    if(keys["d"]) player.position.x += speed;
+
+    updateCamera();
+
+    /* Bullets */
+    bullets.forEach((b,bi)=>{
+        b.position.z -= 0.6;
+
+        enemies.forEach((e,ei)=>{
+            if(b.position.distanceTo(e.position)<1){
+                scene.remove(e);
+                scene.remove(b);
+                enemies.splice(ei,1);
+                bullets.splice(bi,1);
+                score++;
+                document.getElementById("score").innerText=score;
+            }
+        });
+    });
+
+    /* Enemies attack */
+    enemies.forEach((e,ei)=>{
+        e.position.z += 0.05;
+
+        if(e.position.distanceTo(player.position) < 1.5){
+            health -= 0.5;
+            document.getElementById("health").innerText = "Health: " + Math.floor(health);
+
+            /* Flash effect */
+            player.material.color.set(0xff0000);
+            setTimeout(()=>player.material.color.set(0x00ffff),100);
+
+            if(health <= 0){
+                alert("💀 Game Over!\nScore: " + score);
+                location.reload();
+            }
+        }
+    });
+
+    renderer.render(scene,camera);
+}
+animate();
+
+/* Resize */
+window.addEventListener("resize", ()=>{
+    camera.aspect = innerWidth/innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+});
+</script>
+
+</body>
+</html>
+```
+<!-- Create an advanced third-person 3D shooter game using Three.js with player model, enemy AI, shooting system, health bar, animations, particle effects, and smooth camera controls. Make it visually appealing and game-like, with clean and optimized code in a single HTML file. -->

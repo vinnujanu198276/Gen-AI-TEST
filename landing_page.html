@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Hub - Watch Your Favorite Movies</title>
+  <link rel="stylesheet" href="landing_style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo">Movie Time </div>
+      <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-menu" id="navMenu">
+        <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#tvshows">TV Shows</a></li>
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#upcoming">Upcoming</a></li>
+          <li><a href="#login" class="login-btn">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1920&q=80')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-text-wrapper">
+        <h1 class="hero-title">Avengers: Infinity War</h1>
+        <div class="hero-meta">
+          <span class="hero-year">2018</span>
+          <span class="hero-rating">★ 8.4/10</span>
+          <span class="hero-genre">Action • Sci-Fi • Adventure</span>
+        </div>
+        <p class="hero-description">The Avengers and their allies must be willing to sacrifice all in an attempt to defeat Thanos before his blitz of devastation puts an end to the universe.</p>
+        <div class="hero-buttons">
+          <a href="#movies" class="btn btn-primary">Book Now</a>
+          <a href="#movies" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Movies Section -->
+  <section id="movies" class="movies">
+    <div class="section-header">
+      <h2>Popular Movies</h2>
+      <p>Discover the latest blockbusters</p>
+    </div>
+    <div class="movie-row">
+      <div class="movie-card fade-in">
+        <div class="movie-poster">
+          <img src="https://image.tmdb.org/t/p/w780/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" alt="Joker" loading="lazy">
+          <div class="movie-overlay">
+            <button class="play-btn">▶ WATCH</button>
+          </div>
+        </div>
+        <h3>Joker</h3>
+        <p class="movie-year">2019</p>
+      </div>
+
+      <div class="movie-card fade-in">
+        <div class="movie-poster">
+          <img src="https://image.tmdb.org/t/p/w780/6yoghtyTpznpBik8EngEmJskVUO.jpg" alt="Aquaman" loading="lazy">
+          <div class="movie-overlay">
+            <button class="play-btn">▶ WATCH</button>
+          </div>
+        </div>
+        <h3>Aquaman</h3>
+        <p class="movie-year">2018</p>
+      </div>
+
+      <div class="movie-card fade-in">
+        <div class="movie-poster">
+          <img src="https://image.tmdb.org/t/p/w780/rAGiXaUfPzY7CDEyNKUofk3Kw2e.jpg" alt="Avengers: Endgame" loading="lazy">
+          <div class="movie-overlay">
+            <button class="play-btn">▶ WATCH</button>
+          </div>
+        </div>
+        <h3>Avengers: Endgame</h3>
+        <p class="movie-year">2019</p>
+      </div>
+
+      <div class="movie-card fade-in">
+        <div class="movie-poster">
+          <img src="https://image.tmdb.org/t/p/w780/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" alt="Spider-Man: No Way Home" loading="lazy">
+          <div class="movie-overlay">
+            <button class="play-btn">▶ WATCH</button>
+          </div>
+        </div>
+        <h3>Spider-Man: No Way Home</h3>
+        <p class="movie-year">2021</p>
+      </div>
+
+      <div class="movie-card fade-in">
+        <div class="movie-poster">
+          <img src="https://image.tmdb.org/t/p/w780/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg" alt="Avengers: Infinity War" loading="lazy">
+          <div class="movie-overlay">
+            <button class="play-btn">▶ WATCH</button>
+          </div>
+        </div>
+        <h3>Avengers: Infinity War</h3>
+        <p class="movie-year">2018</p>
+      </div>
+
+      <div class="movie-card fade-in">
+        <div class="movie-poster">
+          <img src="https://image.tmdb.org/t/p/w780/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" alt="Parasite" loading="lazy">
+          <div class="movie-overlay">
+            <button class="play-btn">▶ WATCH</button>
+          </div>
+        </div>
+        <h3>Parasite</h3>
+        <p class="movie-year">2019</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Section -->
+  <section id="upcoming" class="upcoming">
+    <div class="section-header">
+      <h2>Upcoming Releases</h2>
+      <p>Coming soon to your screen</p>
+    </div>
+    <div class="upcoming-grid">
+      <div class="upcoming-card fade-in">
+        <div class="upcoming-badge">Coming Soon</div>
+        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=780&q=80" alt="Upcoming Release 1" loading="lazy">
+        <div class="upcoming-info">
+          <h3>Midnight Horizon</h3>
+          <p>Release: June 2026</p>
+        </div>
+      </div>
+      <div class="upcoming-card fade-in">
+        <div class="upcoming-badge">Coming Soon</div>
+        <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=780&q=80" alt="Upcoming Release 2" loading="lazy">
+        <div class="upcoming-info">
+          <h3>Neon Drift</h3>
+          <p>Release: July 2026</p>
+        </div>
+      </div>
+      <div class="upcoming-card fade-in">
+        <div class="upcoming-badge">Coming Soon</div>
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=780&q=80" alt="Upcoming Release 3" loading="lazy">
+        <div class="upcoming-info">
+          <h3>Solar Echo</h3>
+          <p>Release: August 2026</p>
+        </div>
+      </div>
+      <div class="upcoming-card fade-in">
+        <div class="upcoming-badge">Coming Soon</div>
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=780&q=80" alt="Upcoming Release 4" loading="lazy">
+        <div class="upcoming-info">
+          <h3>Lunar Protocol</h3>
+          <p>Release: September 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Movie Hub</h4>
+        <p>Your gateway to cinematic entertainment</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#upcoming">Upcoming</a></li>
+          <li><a href="#tvshows">TV Shows</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social">
+          <a href="#" class="social-link">Facebook</a>
+          <a href="#" class="social-link">Twitter</a>
+          <a href="#" class="social-link">Instagram</a>
+          <a href="#" class="social-link">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Movie Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="landing_script.js"></script>
+</body>
+</html>
+<!-- Create a modern and fully responsive movie landing page using HTML, CSS, and JavaScript. The page should have a sticky navigation bar with a logo and menu items like Home, Movies, Upcoming, and Login, including a mobile-friendly hamburger menu. Add a hero section with a full-screen background image, movie title, rating, genre, description, and action buttons like “Book Now” and “Learn More.” Include a movies section with horizontally scrollable cards displaying movie posters, titles, and release years, with hover effects and a “Watch” button overlay. Also include an upcoming section in a grid layout with “Coming Soon” badges. The design should use a dark theme with gradients, modern UI styling, smooth animations, and hover effects. Add scroll-based animations using IntersectionObserver and ensure images are lazy-loaded. The entire page must be fully responsive across mobile, tablet, and desktop, with clean, well-structured, and working code, similar to a Netflix-style interface. -->
